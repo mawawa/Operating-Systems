@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link  rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+
+    <title>OS Security and Protection</title>
+</head>
+<body>
+<h1 class="animate__animated animate__bounce d-flex justify-content-center mt-20rem">Welcome to operating Systems</h1>
+<nav class=" animate__animated animate__backInDown navbar-dark bg-dark navbar navbar-expand-lg navbar-light bg-light
+container shadow-lg p-3 mb-5  rounded ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul  class="animate__animated animate__fadeIn animate__delay-1s navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/}">Home<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/processor-process}">Processor and Processes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/process-sync-deadlocks}">Processor Synchronization and Deadlocks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"   th:href="@{/memoryManagement}">Memory Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/fileManagement}">File Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" th:href="@{/osSecurityAndProtection}">OS Security and Protection</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/osSecurityAndProtectionII}">OS Security and Protection II</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/linuxBasics}">Linux Basics</a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h1>OS Security and Protection</h1>
+    <a th:href="@{documents/l6op.pdf}">Lecture Notes</a>
+    <p class="animate__animated animate__fadeIn animate__delay-1s">
+        Security involves guarding computer resources against
+        unauthorized access, malicious destruction or alteration,
+        and accidental introduction of inconsistency
+        <br/>
+        Computer resources include the information stored in the
+        system (both data and code), as well as the CPU, memory,
+        secondary storage, tertiary storage, and networking that
+        compose the computer facility
+        <br/>
+        Security violation can be catergorized as
+    </p>
+    <ol>
+        <li>Intentional</li>
+        <li>Accidental</li>
+    </ol>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Forms of malicious security violations</h2>
+    <dl>
+        <dt>
+            1. Breach of integrity
+        </dt>
+        <dd>This type of violation involves unauthorized reading of data</dd>
+        <dt>
+            2. Breach of integrity
+        </dt>
+        <dd>
+            This violation involves unauthorized modification of data
+        </dd>
+        <dt>Theft of Service</dt>
+        <dd>This violation involves unauthorized use of resources.</dd>
+        <dt>Denial of Service</dt>
+        <dd>This violation involves preventing legitimate use of the systems.</dd>
+    </dl>
+    <p>
+        The most common security problem is masquerading, in which one participant
+        in a communication pretends to be someone else.
+        Another common attack is to replay a captured exchange of data.
+    </p>
+    <img width="400" th:src="@{images/securityproblem.png}"/>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Four Measures to protect a system</h2>
+    <dl>
+        <dt>
+            1.Physical
+        </dt>
+        <dd>The site of sites containing the computer systesm must be
+        physically secured against entry by intruders</dd>
+        <dt>
+            2. Network
+        </dt>
+        <dd>Most contempooryary computer systems form servers to mobile
+        devices to internet of things are networked.</dd>
+        <dt>3. Operating System</dt>
+        <dd>The operation systems and its built-in set of application and services
+        comprice a huge code base that may hobor vulnerabilities.</dd>
+        <dt>4. Application</dt>
+        <dd>Third party application may also pose risks especially if they posses significant privilatges.</dd>
+    </dl>
+    <img width="400" th:src="@{images/levelsecurity.png}"/>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h1>Program Threats</h1>
+    <dl>
+        <dt>
+            1. Malware
+        </dt>
+        <dd>Malware is a software sesigned to ecpoit, disable or
+            damage computer systems. An example of malware is on the
+            Trojan horce clissified as spyware. Another form of malware is
+            the Ransomware</dd>
+        <dt>
+            2. Code Injection
+        </dt>
+        <dd>
+            Most software is not malicious, but it can nonetheless
+            pose serious threats to security due to a code-injection
+            attack, in which executable code is added or modified.
+        </dd>
+        <dt>Viruses and Worms</dt>
+        <dd>
+            A virus is a fragment of code embedded in a legitimate
+            program. They usually come from spam email and phising attacks.
+        </dd>
+    </dl>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>System Network Threats</h2>
+    <p>
+        Program threats, by themselves, pose serious security
+        risks.
+        • But those risks are compounded by orders of
+        magnitude when a system is connected to a network.
+        • Worldwide connectivity makes the system vulnerable
+        to worldwide attacks.
+        <br/>
+        For that reason, hackers frequently launch attacks from
+        zombie systems—
+        • Zombie systems are independent systems or devices
+        that have been compromised by hackers but that
+        continue to serve their owners while being used
+        without the owners’ knowledge for nefarious purposes
+        including denial-of-service attacks and spam relay.
+    </p>
+    <p>
+        Common network attacks includes :
+    </p>
+    <ol>
+        <li>Sniffing</li>
+        <li>Dos</li>
+        <li>port scanning</li>
+    </ol>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Cryptography as a Security tool</h2>
+    <p>
+        It is generally considered infeasible to build a network of
+        any scale in which the source and destination addresses of
+        packets can be trusted in this sense.
+        • Therefore, the only alternative is somehow to eliminate
+        the need to trust the network.
+        • This is the job of cryptography.
+    </p>
+    <img width="400" th:src="@{images/Encryption.png}"/>
+    <p>
+        There are two main types of encryption algorithms:
+    </p>
+    <ol>
+        <li>
+            Asymetric Encrpytion
+        </li>
+        <li>Symetric Encryption</li>
+    </ol>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Authentication</h2>
+    <p>• An authentication algorithm using symmetric keys
+        consists of the following components:
+        <br/>
+        • A set K of keys.
+        <br/>
+        • A set M of messages.
+        <br/>
+        • A set A of authenticators.
+        <br/>
+        • A function S : K → (M → A).
+        <br/>
+        • A function V : K → (M × A → {true, false}). That is, for
+        each k ∈ K, Vk
+        is a function for verifying
+        authenticators on messages.
+    <br/>
+    There are 2 main varieties of authentication algorithms.
+    </p>
+    <dl>
+        <dt>1. Message-authentication code
+        </dt>
+        <dd>Uses symetric encyption. here a cryptographic checksum is
+        generated from the message using a secret key</dd>
+        <dt>2. Digital-signature algorythm</dt>
+        <dd>The authenticators are called digital signatures. Digital
+        signatures are very usefull in that they enable anyone to veryfy
+        the authenticity of the message.</dd>
+    </dl>
+    <p>Users Authentication is based on one or more of three things : </p>
+    <ol>
+        <li>The users possesion of something</li>
+        <li>The users knowledge of something</li>
+        <li>An attribute of the user eg a finger print.</li>
+    </ol>
+    <p>
+        <h4>Passwords</h4>
+    <p> The most common approach to authenticating a user is to use a password.
+        which falls under something the user knows. There are three ways
+        to break a password
+    </p>
+    <ol>
+        <li>to know the user and use their common password since all too
+        frequently users use names of their cats, siblings  spouses.</li>
+        <li>Another way is to use brute force.</li>
+        <li>A third way is to use brute force.</li>
+    </ol>
+    <p>Advancements have been made to include and OTP which is a
+    one time password. These are most commonly used
+    in two factor authentication.
+    </p>
+    <h4>Biometrics</h4>
+    <p>yet another variation on the use of passwords authentication incolves the use
+    of biometric data. this includes the use of eye scanners, palm readers, fingerprint readers.
+    These can be configured to take aother parameters like tempereture, finger width and the
+    line patterns.</p>
+
+
+
+
+</div>
+
+
+
+
+<script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

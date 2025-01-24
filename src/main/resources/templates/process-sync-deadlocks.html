@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link  rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+  <title>Process Sync and Deadlocks</title>
+</head>
+<body>
+<h1 class="animate__animated animate__backInDown d-flex justify-content-center mt-20rem">Process Synchronization and Deadlocks</h1>
+<nav class=" animate__animated animate__backInDown navbar-dark bg-dark navbar navbar-expand-lg navbar-light bg-light
+container shadow-lg p-3 mb-5  rounded ">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="animate__animated animate__fadeIn animate__delay-1s navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{/}">Home<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{/processor-process}">Processor and Processes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active " th:href="@{/process-sync-deadlocks}">Processor Synchronization and Deadlocks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/memoryManagement}">Memory Management</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/fileManagement}">File Management</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{/osSecurityAndProtection}">OS Security and Protection</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{/osSecurityAndProtectionII}">OS Security and Protection II</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{/linuxBasics}">Linux Basics</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+    </span>
+  </div>
+</nav>
+
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+  <h2>Introduction</h2>
+  <a th:href="@{documents/OPERATING SYSTEMS- LECTURE 3.pdf}">Lecture Notes</a>
+  <p class="animate__animated animate__fadeIn animate__delay-1s">
+    A system typically consists of several (perhaps hundreds or
+    even thousands) of threads running either concurrently or
+    in parallel. Threads often use shared data. Mean-while the operating system
+    continuously updates various structures of data to support multiple threads.
+  </p>
+  <h3 class="animate__animated animate__fadeIn animate__delay-1s">A race condition</h3>
+  <p class="animate__animated animate__fadeIn animate__delay-1s">
+    A race condition occurs when two or more threads try to read and write the same
+    variable. <i>Process Synchronization </i> involves using tools that control access to shared data.
+    Concurrent access to data may result in data inconsistencies.
+
+  </p>
+</div>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+  <h2>Concurrency and Parallelism</h2>
+
+  <p class="animate__animated animate__fadeIn animate__delay-1s">
+    Processes can execute either concurrently or parallel.
+  </p>
+  <h3 class="animate__animated animate__fadeIn animate__delay-1s">Concurrent</h3>
+  <p class="animate__animated animate__fadeIn animate__delay-1s">
+    The CPU scheduler switches rapidly between processes to
+    provide concurrent execution
+  </p>
+  <ol class="animate__animated animate__fadeIn animate__delay-1s">
+    <li>
+      This means that one process may only partially
+      complete execution before another process is
+      scheduled.
+    </li>
+    <li>
+      In fact, a process may be interrupted at any point in
+      its instruction stream, and the processing core may
+      be assigned to execute instructions of another
+      process
+    </li>
+  </ol>
+
+  <h3 class="animate__animated animate__fadeIn animate__delay-1s">Parallel</h3>
+  <p class="animate__animated animate__fadeIn animate__delay-1s">
+    In parallel execution, in which two instruction streams
+    (representing different processes) execute simultaneously
+    on separate processing cores
+  </p>
+
+</div>
+<div class="animate__animated animate__backInDown container  container shadow-lg p-3 mb-5 bg-white rounded">
+  <h2 class="animate__animated animate__fadeIn animate__delay-1s">Critical Section Problem</h2>
+  <p>
+
+    Consider a system consisting of n processes {P0
+    , P1
+    , .., Pn−1}.
+  </p>
+  <ol>
+    <li>
+      Each process has a segment of code, called a critical
+
+      section, in which the process may be accessing — and
+      updating — data that is shared with at least one other
+      process.
+    </li>
+
+    <li>
+      The important feature of the system is that, when one
+      process is executing in its critical section, no other process
+      is allowed to execute in its critical section
+    </li>
+  </ol>
+</div>
+<div class="d-flex flex-row animate__animated animate__backInDown container  container shadow-lg p-3 mb-5 bg-white rounded">
+  <div style="width: 40%;" class="shadow-lg p-3 mb-5 bg-white rounded">
+    <h4>
+      Code
+    </h4>
+    <p>
+      while(true){<br>
+    </p>
+    <div style="border: 1em; border-color: yellow; width 100px; height 40px">
+      <p>entry Section</p>
+    </div>
+    <div style="border: 3em; border-color: yellow; width 100px; height 40px">
+      <p>Critical Section</p>
+    </div>
+    <div style="border: 3em; border-color: yellow; width 100px; height 40px">
+      <p>Exit Section</p>
+    </div>
+    <p>
+
+      }
+    </p>
+
+  </div>
+  <div style="width: 40%;" class="ms-4 shadow-lg p-3 mb-5 bg-white rounded">
+    <h4>Implementation</h4>
+    <form id="runprogram" method="post" th:action="@{/runCriticalSectionProgram}">
+      <input class="btn btn-success" type="submit" value="Run Program" >
+    </form>
+  </div>
+
+
+</div>
+<div  class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded">
+  <h3>Solution</h3>
+  <p>The Solution to the critical section problem is to make sure that
+    it satisfies the following three requirements.
+  </p>
+  <dl>
+    <dt>Mutual Exclusion</dt>
+    <dd>
+      If process Pi
+
+      is executing in its critical section,
+
+      then no other processes can be executing in their
+      critical sections.
+    </dd>
+    <dt>Progress</dt>
+    <dd>
+      If no process is executing in its critical section &
+      some processes wish to enter their critical
+      sections, then only those processes that are not
+      executing in their remainder sections can
+      participate in deciding which will enter its critical
+      section next, and this selection cannot be
+      postponed indefinitely
+    </dd>
+    <dt>Bounded waiting</dt>
+    <dd>
+      There exists a bound, or limit, on the number of
+      times that other processes are allowed to enter
+      their critical sections after a process has made a
+      request to enter its critical section & before that
+      request is granted.
+    </dd>
+
+  </dl>
+</div>
+<div  class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded">
+  <h2>Semaphores</h2>
+  <p>
+    Semaphores are robust ways that provide more sophisticated ways of process synchronization.
+    a Semaphore can be accessed using two methods wait() and signal(). The wait() method
+    decrements the semaphore value; while the signal() method increments the semaphore value.
+  </p>
+  <p>Semaphores can be broadly devided in to two; these are ;
+    <br/><b>counting semaphores</b>
+    <b>Binary Semaphores</b>
+
+    <br/>
+    Counting semaphores can be used and are initialized to the number of resources.
+  </p>
+  <h3>Deadlock</h3>
+  <p>
+    A deadlock situation where a thread requests a resource only to find that
+    that particular resource is be held by a waiting thread, thus now this will
+    lead to a deadlock.
+    <br>
+    <i><u>Example resources: </u></i> Files , cpu cycles, I/O devices. In the case
+    of multiple cores like 4 cores the resource is set to 4.
+    <br/>
+    A <b>Deadlock arises if the following four conditions occur in a system.</b>
+  </p>
+  <ol>
+    <li>Mutual Exclusion </li>
+    <li>Hold and wait</li>
+    <li>No preemption</li>
+    <li>Circular wait</li>
+  </ol>
+  <p>All these four conditions must hold for there to be a deadlock. There are ways that deadlocks
+  can be handled.</p>
+  <h3>Ways to handle deadlocks</h3>
+  <ol>
+    <li>We ignore the problem and pretend deadlocks never heppen in the system.</li>
+    <li>We can use a protocol to prevent or avoid deadlocks from heppening. </li>
+    <li>We can allow the systems to enter the deadlock then we detect and recover for it.</li>
+  </ol>
+
+  <p>Dead locks are prevented by either using a <b>Deadlock prevention scheme</b> or
+  use a <b>Deadloack avoidance scheme</b></p>
+
+  <h3>Safe State</h3>
+  <p>
+
+  a systems is said to be in a safe state if it can allocate all the resources to a maximum and
+  still not have the system go into a deadlock. Thre are two factors to consider in
+  order to invoke a detection algorithm.
+  </p>
+    <ol>
+      <li>How often is a deadlock likely to occur</li>
+      <li>How many threads will be affected if the deadlock heppens. </li>
+    </ol>
+</div>
+
+<div  class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded">
+  <h2>Classical problems of Synchronization </h2>
+  <ol>
+    <li> Classic Bounded Buffer problem</li>
+    <li> Classic Readers and writers problem</li>
+    <li> Classic Dinning philosophers problem</li>
+  </ol>
+</div>
+<script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

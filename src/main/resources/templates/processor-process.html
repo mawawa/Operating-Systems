@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link  rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <title>Processor and precesses</title>
+</head>
+<body>
+<h1 class="animate__animated animate__backInDown d-flex justify-content-center mt-20rem">Processor and Processes</h1>
+<nav class=" animate__animated animate__backInDown navbar-dark bg-dark navbar navbar-expand-lg navbar-light bg-light
+container shadow-lg p-3 mb-5  rounded ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul  class="animate__animated animate__fadeIn animate__delay-1s navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/}">Home<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active " th:href="@{/processor-process}">Processor and Processes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/process-sync-deadlocks}">Processor Synchronization and Deadlocks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/memoryManagement}">Memory Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/fileManagement}">File Management</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/osSecurityAndProtection}">OS Security and Protection</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/osSecurityAndProtectionII}">OS Security and Protection II</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/linuxBasics}">Linux Basics</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+    </span>
+    </div>
+</nav>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h1>Introduction</h1>
+    <a th:href="@{documents/OPERATING SYSTEMS- LECTURE 2.pdf}">Lecture Notes</a>
+    <p>
+        A process is a program in execution. The status of a process is held by the program counter and
+        the contents of the memory registers. A process is held in memory in the multiple section.
+
+
+    </p>
+    <dl>
+        <dt>Text Section</dt>
+        <dd>This section holds the code to be executed.</dd>
+        <dt>Data Section</dt>
+        <dd>This section holds the programs global variables.</dd>
+        <dt>Heap Section</dt>
+        <dd>This section is the memory that is dynamically allocated to the program during execution.</dd>
+        <dt>Stack Section</dt>
+        <dd>This section is temporal storage for invoking functions, that is the parameters and return values and local variables.</dd>
+    </dl>
+    <p>
+        The size of the data and the text section are fixed as their sizes
+        do not change in the execution of the program. On the other hand the heap and the stack section
+         change as the program runs. Although the stack and the heap sections grow during execution
+        the operating system should make sure that the two do not overlap.
+    </p>
+</div>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Program vs Process</h2>
+    A program is just information with the list of instruction stored in a location while
+    a process is and active entity that has a program counter specifying the next instruction
+    to execute along with allocates system resources. A program becomes a process when
+    its executable file is loaded into memory.
+    <h3>Process States</h3>
+    A process can be in one of 5 states :
+    <dl>
+        <dt>
+            New
+        </dt>
+        <dd>
+            The process is being created.
+        </dd>
+        <dt>
+            Running
+        </dt>
+        <dd>The instructions in the text part of the process are being executed.</dd>
+        <dt>
+            Waiting
+        </dt>
+        <dd>The process is wai
+        <dt>Ready</dt>
+        <dd>The process is waiting to be assigned to a processor.</dd>
+        <dt>Terminated</dt>
+        <dd>The process has finished execution</dd>
+    </dl>
+</div>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Process Control Block</h2>
+    <p>
+        A process in the operating system is represented with ta process control block.
+        The PCB is made up of the following section:
+    </p>
+    <dl>
+        <dt>
+            Process State
+        </dt>
+        <dd>The process state is show which of the five states the process is in, that is
+        new , running , waiting , terminated, ready</dd>
+        <dt>Program Counter</dt>
+        <dd>
+            Ths program counter host the location of the next instruction to be executed.
+        </dd>
+        <dt>CPU Registers</dt>
+        <dd>
+            The registers vary in number and
+            type, depending on the computer architecture
+        </dd>
+        <dt>CPU Scheduling</dt>
+        <dd>
+            This part contains the information about process priority, pointer to shceduling queues,
+            and other scheduling parameters.
+        </dd>
+        <dt>Memory management Information</dt>
+        <dd>This
+            information may include such items as the value of the
+            base and limit registers and the page tables, or the
+            segment tables, depending on the memory system
+            used by the operating system</dd>
+        <dt>Accounting Information</dt>
+        <dd> This information includes
+            the amount of CPU and real time used, time limits,
+            account numbers, job or process numbers, and so on.</dd>
+        <dt>I/O Status Information</dt>
+        <dd>This information includes
+            the list of I/O devices allocated to the process, a list of
+            open files, and so on.</dd>
+    </dl>
+</div>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>1. Process Creation</h2>
+    <p>the state of the process here is new. During the creation of a process a process my
+    also create many other processes. The process that creates the other processes is called
+    a parent process. The processes are uniquely identified with their PID the id process identifier.
+        <br/>
+        For Example the process with PID 1 in a linux system will be the parent of all the processes
+        which that particular user will create. The system process always has a PID of 1.
+
+    </p>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>2. Process Termination</h2>
+    <p>A process terminates when it is finished executing its last instruction
+    and asked the operating systems to delete it by executing calling exit() system call.
+    The process may return a status value to the parent process via the wait() system call.
+    All the resources given to the process are returned to the operating system.
+    A process may terminate another process by invoking the TerminateProcess() system call.
+        this system call can only be called by a parent process to its child processes. Cascading
+        termination states that some systems donot allow childe processes to exist without the parent
+        processes existing. Thus if the parent processs terminates then all its children processes
+        are terminated.
+
+    </p>
+
+</div>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Process Classification</h2>
+    Below is the hierarchy of the processes
+    <dl>
+        <dt>Foreground process</dt>
+        <dd>This is the process that is currenly visible on the screen</dd>
+        <dt>Visible process</dt>
+        <dd>A process that is not directly visible
+            on the foreground but that is performing an activity
+            that the foreground process is referring to</dd>
+        <dt>Service process</dt>
+        <dd>this is a process similar to a background process but differs in that
+        its execution is apparent to the user , like streaming music.</dd>
+        <dt>Background process</dt>
+        <dd>this is a process that executes in the background and is not apparent to the user.</dd>
+        <dt>Empty process</dt>
+        <dd>this is a process that holds no active components. </dd>
+    </dl>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Threads</h2>
+    <p>threads allow processes to have multiple execution streams. That is in a word
+    processor one may have a Thread for typing and then another thread for spellchecking.
+    This feature is most beneficial to systems with multi cores where each thread can executed on
+    a different core allowing for parallel execution.</p>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Inter process communication</h2>
+    <p>Processes of a operating system may be either independent of cooperating processes. There are three
+    main reasons for having cooperating process :
+    </p>
+    <dl>
+        <dt>Sharing information</dt>
+        <dd>processes may be interested in the same information and thus sharing of infomration
+        for example in instances of copy and paste.</dd>
+        <dt>Computation speedup</dt>
+        <dd>
+            If we want a particular task
+            to run faster, we must break it into subtasks, each of
+            which will be executing in parallel with the others.
+        </dd>
+        <dt>Modularity</dt>
+        <dd>
+            We may want to construct the system
+            in a modular fashion, dividing the system functions into
+            separate processes or threads.
+        </dd>
+    </dl>
+
+    <p>
+        There are two fundamental IPC these are
+        <ol>
+    <li>Shared Memory</li>
+    <li>Message passing</li>
+</ol>
+    </p>
+    <img  th:src="@{images/ipc.png}" width="400" alt="image if IPC">
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Process Scheduling</h2>
+    <p>
+        <b>Multiprogramming -</b> This is most concerned with making sure that the cpu always has
+        some process  that is executing.
+        <br/>
+        <b>Time Sharing-</b> this is most concerned with how to switch a CPU core
+        among processes so frequently that users can interact
+        with each program while it is running.
+        <br/>
+        To meet these objectives the use of a process scheduler is needed. The process scheduler
+        is able to select an available process for program execution in the core.
+        Each CPU core can run one proces at a time. The number of processes currently in memory is known
+        as a degree of multiprogramming.
+        <br/>
+        Processes in multiprogramming and timesharing can be described in one of two ways.:
+        <br/>
+        <b>I/O bound Processor</b>- This is the process that spends most of its time doing input output
+        than it spends calculating.
+        <br/>
+        <b>CPU-Bound Processes</b> - This is a process that spends most of its time doing computation.
+    </p>
+    <p>
+        Processes's PCB are loaded into a queue that is in form of a linked list.
+    </p>
+    <img th:src="@{images/schedulingq.png}" width="400" alt="image of scheduling queue"/>
+    <p>
+        Another way to visualize process scheduling is through the use of queue diagrams.
+
+    </p>
+    <img th:src="@{images/queuediag.png}" width="600" alt="image of queueing diagram">
+    <p>The <b>CPU scheduler</b> runs approximately every 100 milliseconds although usually
+    it is much faster. If a process runs logner then it is forcibly stopped usually in the
+    situation of <b> I/O Bound processes</b> which would be held by waiting for and <b>I/O request</b>.
+    </p>
+    <h4>Swapping</h4>
+    <p>Some operating systems have and intermediate form of scheduling called swapping.</p>
+    <h4>Context Switch</h4>
+    <p>
+        Context switch helps in the situation the a system call is made of a system interupt which
+        causes the shceduler to save the state  that process the PCB loads the next one to the PCB
+        and the executes that one.
+    </p>
+    <img th:src="@{images/contexts.png}" alt="image of context switch" width="600">
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Scheduling algorithms</h2>
+    <dl>
+        <dt>
+            FCFS - First Come First Service
+        </dt>
+        <dd>
+            this is the first come fist serve algorithm. This is implemented using the
+            FIFO algorithm. In a case like  below where P1 takes 27ms, P2 takes 3ms and P3 takes 3ms,
+            the process flow chart will look like this;
+            <img th:src="@{images/pflow.png}" alt="Image of flow chart.">
+            the avarage wait time is given by all the wait times addad together then devided by the
+            number of processes eg:
+            (0 + 24 + 27) /3 = 17
+        </dd>
+        <dt>
+            SJF  - Short job first.
+        </dt>
+        <dd>
+            This scheduling algorithm assigns the order according to the shortest job first.
+            so in the instance above the wait time would be
+            (0 + 3 + 6) /3 = 3;
+            this is because one of the two smaller processor burst time will be scheduled first.
+        </dd>
+        <dt>RR - Round Robin Scheduling algorith</dt>
+        <dd>
+            This scheduling algorithm is similar to the FCFS but only differs in that
+            preemption is added to enable the system to switch between processes. The switching
+            is deteming by a time slice or what is also call a time quantum
+        </dd>
+        <dt>Priority Scheduling</dt>
+        <dt>In this scheduling algorithm a priority is given to each process. </dt>
+    </dl>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Multiple processor scheduling</h2>
+    <p>Read More...</p>
+</div>
+
+
+    <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link  rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+
+  <title>OS Security and Protection</title>
+</head>
+<body>
+<h1 class="animate__animated animate__bounce d-flex justify-content-center mt-20rem">Welcome to operating Systems</h1>
+<nav class=" animate__animated animate__backInDown navbar-dark bg-dark navbar navbar-expand-lg navbar-light bg-light
+container shadow-lg p-3 mb-5  rounded ">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul  class="animate__animated animate__fadeIn animate__delay-1s navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{/}">Home<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{/processor-process}">Processor and Processes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/process-sync-deadlocks}">Processor Synchronization and Deadlocks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"   th:href="@{/memoryManagement}">Memory Management</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/fileManagement}">File Management</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{/osSecurityAndProtection}">OS Security and Protection</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{/osSecurityAndProtectionII}">OS Security and Protection II</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" th:href="@{/linuxBasics}">Linux Basics</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+  <h1>Linux Basics</h1>
+  <a th:href="@{documents/l8op.pdf}">Lecture Notes</a>
+  <p>
+    Unix is a very powerfull operating system. It was originally developed in 1991 by Linus Torvalds. it is opensource.
+    Being opensource one is able to correct it or add certain features to the source code. There are different flavors of
+    LINUX os:
+  </p>
+  <ol>
+    <li>Redhat</li>
+    <li>fedora</li>
+    <li>Ubuntu</li>
+    <li>Mint</li>
+  </ol>
+  <p>
+    Linux has all the typical component of an operating system. for example
+    The kernel which is found in <b>boot/vmlinuz</b> and the source files
+    are found in the <b>/usr/src/linux</b>
+    <br>
+    The Linux operating system can be commanded in one of two ways. One is the
+    <b>GNOME which is the graphical user interface for linux.</b>
+
+  </p>
+
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+  <h2>Access Linux</h2>
+  <p>In-order to change ones password the <b>$passwd</b> command would be used. The general
+  syntax of linux comand is <b>$ commands -options targets</b>every item that is
+  stored in a linux operating system falls in one of four types:
+  </p>
+  <h3>Linux file system</h3>
+  <dl>
+    <dt>Ordinary files</dt>
+    <dd>This are files that contain text vidio audio and the likes. </dd>
+    <dt>
+      Directories
+    </dt>
+    <dd>Directories are containers for other directories and files .</dd>
+    <dt>Devices</dt>
+    <dd>this provids easy acces for application to acces the computer devices. They are devided
+    into two:  <b>Block-oriented devices</b> and <b>Character-oriented devices.</b></dd>
+    <dt>Links</dt>
+    <dd>This is a pointer to another file. There are two types of links. There is the
+    <b>hard link</b> and then there is the soft-link</dd>
+  </dl>
+  <p>The linux files system is laid out in a hierarchical tree which is achored by
+  to top-level directoty <b>"/"</b> </p>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+  <h2>Installation and upgrade</h2>
+  <p>The command for installin linux subsystem on windows is <b>wsl -install</b>.
+  From there on can update the installation by running these two commands </p>
+  <ol>
+    <li>sudo apt  update</li>
+    <li>sudo apt upgrade</li>
+  </ol>
+  <p>Inorder to verify or show the installation version the   <b>uname -r</b> command can be used. </p>
+</div>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+  <h2>Important Linux commands </h2>
+  <dl>
+    <dt>pwd</dt>
+    <dd>Displays the present working directory</dd>
+    <dt>cd</dt>
+    <dd>Changes your current working directory .</dd>
+    <dt>mkdir directory</dt>
+    <dd>The creates a new directory call directory in the present working directry. </dd>
+    <dt>rmdir directory</dt>
+    <dd>This command will delete or remove the directory  </dd>
+    <dt>ls</dt>
+    <dd>This command lists all the files in the a directory</dd>
+    <dt>cat target-file</dt>
+    <dd>This command displays the content of a file on the screen</dd>
+    <dt>cp source-file destination</dt>
+    <dd>This command copyies a file form source file to the destination.</dd>
+    <dt>rm</dt>
+    <dd>This ccommand removes a file</dd>
+    <dt>mv source destination</dt>
+    <dd>This command is used to both move a particular file or directory or to rename a particular file</dd>
+    <dt>wc </dt>
+  </dl>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+  <h2>Editing files</h2>
+  <p>There are two main termnal file editors</p>
+  <ul>
+    <li>Nano</li>
+    <li>Vim</li>
+    <li>Emacs</li>
+    <li>Gedit</li>
+    <li>kate</li>
+  </ul>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+  <h2>Linux shell</h2>
+  <p>A linux shell program is similar to the windows bat program. This is a program which reads and executes
+  commands for the user. There are many flavors of linux terminals </p>
+  <ul>
+    <li>sh</li>
+    <li>ksh</li>
+    <li>bash</li>
+    <li>csh</li>
+  </ul>
+
+  <p>It is possible to declare a variable in the shell ed <b>$fullName = "Wandile Shongwe". the
+  defined variable scope is within the shell. inorder to make it accessible from outside the shell
+  the command used is <b>$export fullName</b></b></p>
+</div>
+
+<script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

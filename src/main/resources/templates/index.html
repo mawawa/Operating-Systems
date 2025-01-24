@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link  rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+
+    <title>Operating Systems</title>
+</head>
+<body>
+<h1 class="animate__animated animate__bounce d-flex justify-content-center mt-20rem">Welcome to operating Systems</h1>
+<nav class=" animate__animated animate__backInDown navbar-dark bg-dark navbar navbar-expand-lg navbar-light bg-light
+container shadow-lg p-3 mb-5  rounded ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul  class="animate__animated animate__fadeIn animate__delay-1s navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link active " th:href="@{/}">Home<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/processor-process}">Processor and Processes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/process-sync-deadlocks}">Processor Synchronization and Deadlocks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/memoryManagement}">Memory Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/fileManagement}">File Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/osSecurityAndProtection}">OS Security and Protection</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/osSecurityAndProtectionII}">OS Security and Protection II</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/linuxBasics}">Linux Basics</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+        </span>
+
+
+    </div>
+</nav>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h1>
+        Introduction
+    </h1>
+    <a th:href="@{documents/OPERATING SYSTEMS- LECTURE 1.pdf}">Lecture Notes</a>
+    <br/>
+
+    <a th:href="@{documents/test1 op.pdf}">Test 1</a>
+    <br>
+    <a th:href="@{documents/test2 op.pdf}">Test 2</a>
+
+    <p class="animate__animated animate__fadeIn animate__delay-1s">
+        An Operating system is a software that manages computers hardware. It also
+        provides a basis for applications to act as intermediary to the computer user and the computer
+        hardware.
+        <br>
+        Operating systems are everywhere:
+    </p>
+    <ul  class="animate__animated animate__fadeIn animate__delay-1s">
+        <li>
+            cars
+        </li>
+        <li>
+            In the Internet of things
+        </li>
+        <li>
+            On smartphones
+        </li>
+        <li>
+            On Cloud computers.
+        </li>
+    </ul>
+
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h1>Organization of Computer hardware</h1>
+    <p class="animate__animated animate__fadeIn animate__delay-1s">
+        Computer hardware is made up of:
+    </p>
+    <ul  class="animate__animated animate__fadeIn animate__delay-1s">
+        <li>CPU</li>
+        <li>Memory</li>
+        <li>IO Devices</li>
+        <li>Storage</li>
+    </ul>
+    <p>
+        A fundamental responsibility of an operating system is to allocate these
+        resources to programs.
+    </p>
+</div >
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h1>Components of a computer system</h1>
+    <p  class="animate__animated animate__fadeIn animate__delay-1s"> A computer system can be roughly divided into four components </p>
+    <ol  class="animate__animated animate__fadeIn animate__delay-1s">
+        <li>User</li>
+        <li>Application Programs</li>
+        <li>Operating System</li>
+        <li>Computer Hardware</li>
+    </ol>
+    <img th:src="@{images/computer system.png}" width="400" alt="image of parts of the computer system">
+    <p  class="animate__animated animate__fadeIn animate__delay-1s">The operating system is the one program that is running all the time on the computer
+        and is usually called the kernel
+    </p>
+</div>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Types of Operating Systems</h2>
+    <p class="animate__animated animate__fadeIn animate__delay-1s">There are 6 types of operating systems</p>
+    <dl class="animate__animated animate__fadeIn animate__delay-1s">
+        <dt>
+            <h4>1. Batch Operating Systems</h4>
+        </dt>
+        <dd>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1-7BlGuo4v8?si=2xV56x1KeVCZvZi3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+       <br>
+            The Batch operating System is appropriate for lengthy, time consuming tasks. These
+            systems are usually payroll systems, data entry and bank statements.
+            <br/>
+            <b>Advantages</b>
+            <ol>
+                <li>Many users can share a batch systems
+                </li>
+                <li>It becomes possible to handle large workloads</li>
+                <li>It's easy to estimate how long a task will take to be completed.</li>
+            </ol>
+            <b>Disadvantages</b>
+            <ol>
+                <li>batch operating systems are challenging to debug</li>
+                <li>Any failure of a batch operating system create a backlog</li>
+                <li>It may be costly to install and maintain a good batch operating system</li>
+            </ol>
+
+        </dd>
+
+        <dt>
+            <h4> 2. Time Sharing or Multitasking operating system</h4>
+        </dt>
+        <dd>
+            <iframe  width="560" height="315" src="https://www.youtube.com/embed/G5T3ut3jM-c?si=GG3fmCu492K5jUE5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </dd>
+        <br/>
+        Works by allocating time to a particular task and
+        switching between tasks frequently.
+        <br/>
+        <b>Advantages</b>
+        <ol>
+            <li>There is a quick response during task performance.</li>
+            <li>It minimizes the idle time of the processor.</li>
+            <li>All tasks get an equal chance of being completed.</li>
+            <li>IT reduces the chance of software duplication</li>
+        </ol>
+        <b>Disadvantages</b>
+        <ol>
+            <li>The user's data security might be a problem.</li>
+            <li>System failure might lead to widespread failures.</li>
+            <li>Problems in data communication may rise.</li>
+            <li>The integrity of the user programs is not assured.</li>
+        </ol>
+
+        </dd>
+        <dt>
+            <h4>3. Distributed OS</h4>
+        </dt>
+        <dd>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PAVIrWD1vpI?si=FDQBqOlxIyVDgad4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            <br/>
+            This system is based on autonomous but interconnected
+            computers communicating with each other via
+            communication lines or a shared network.
+            <br/>
+            <b>Advantages</b>
+            <ol>
+                <li>They allow remote working.</li>
+                <li>They allow faster exchange of data between users. </li>
+                <li>Failure in one system may not cause failure of the whole system.</li>
+                <li>They reduces delays in data processing.</li>
+                <li>They minimize the load on the host computer.</li>
+                <li>They enhance scalability</li>
+            </ol>
+            <b>Disadvantages</b>
+            <ol>
+                <li>If the primary network fails the whole network fails</li>
+                <li>They're expensive to maintain and require a high level of expertise. </li>
+            </ol>
+        </dd>
+
+        <dt>
+            <h4>4. Network Operating System</h4>
+        </dt>
+        <dd>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/C0cd5hJX6o4?si=boYxSXxVYgGYdaIW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <br/>
+            Network operating systems are installed on a server
+            providing users with the capability to manage data, user
+            groups and applications.
+            <br/>
+            <b>Advantages</b>
+            <ol>
+                <li>Centralised server provide high stability.</li>
+                <li>Security issues are easy to handle through the server.</li>
+                <li>It's easy to upgrade and integrate new technologies.</li>
+                <li>Remote access to server is poss`ible.</li>
+            </ol>
+            <b>Disadvantages</b>
+            <ol>
+                <li>They require regular updates and maintenance.</li>
+                <li>Server are expensive to buy and maintain.</li>
+                <li>The users reliance to the server might be detrimental to the workflows.</li>
+            </ol>
+        </dd>
+        <dt>
+            <h4>5. Real Time Operating System</h4>
+        </dt>
+        <dd>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Q-4jzYIcdxM?si=aEAVp91e_i7Hu1O1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <br>
+            Real-time operating systems provide support to realtime systems that require observance of strict time
+            requirements.
+            <br>
+            They are typically used for tasks such as scientific
+            experiments, medical imaging, robotics and air traffic
+            control operations.
+            <br>
+            <b>Advantages</b>
+            <ol>
+                <li>The use devices and system maximally hence more output. </li>
+                <li>They allow fast shifting from one task to another.</li>
+                <li>The focus is on current task and less focus on the queue.</li>
+                <li>They can be used in embed systems.</li>
+                <li>They are meticulously programmed hence free of error.</li>
+                <li>They allow easy allocation of memory</li>
+            </ol>
+            <b>Disadvantages</b>
+            <ol>
+                <li>They have a low capacity for running tasks semultaniously</li>
+            </ol>
+        </dd>
+        <dt>
+            <h4>6. Mobile Operating Systems</h4>
+        </dt>
+        <dd>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qJJ-kEwgLrY?si=hfAWScH8V7pTnzAV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <br>
+            Mobile operating systems such as Android OS, Apple and
+            Windows mobile OS run exclusively on small devices
+            such as smartphones, tablets and wearables.
+            • The system combines the features of a personal
+            computer with additional features useful for a handheld
+            device.
+            • Mobile operating systems start when a device is
+            powered on to provide access to installed applications
+            • Mobile operating systems also manage wireless network
+            connectivity
+            <br>
+            <b>Advantages</b>
+            They are easy for users to learn and use.
+            <br>
+            <b>Disadvantages</b>
+            They are sommetimes heavy and may drain battery and require frequent charging
+        </dd>
+
+
+    </dl>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Operating System Structures</h2>
+    <dl>
+        <dt>1. Simple Structue</dt>
+        <dd>This is the simplest operating system structure and is not well defined. It can only
+        be used in small and limitted systems. This stuctures is implemented in MS DOS operating systems</dd>
+        <img th:src="@{images/simpleosstruct.png}" width="400" alt="image of simple os structure"/>
+    </dl>
+</div>
+
+
+
+
+
+<script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

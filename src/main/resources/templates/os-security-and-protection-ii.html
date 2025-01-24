@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link  rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+
+    <title>OS Security and Protection</title>
+</head>
+<body>
+<h1 class="animate__animated animate__bounce d-flex justify-content-center mt-20rem">Welcome to operating Systems</h1>
+<nav class=" animate__animated animate__backInDown navbar-dark bg-dark navbar navbar-expand-lg navbar-light bg-light
+container shadow-lg p-3 mb-5  rounded ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul  class="animate__animated animate__fadeIn animate__delay-1s navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/}">Home<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/processor-process}">Processor and Processes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/process-sync-deadlocks}">Processor Synchronization and Deadlocks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"   th:href="@{/memoryManagement}">Memory Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/fileManagement}">File Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/osSecurityAndProtection}">OS Security and Protection</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" th:href="@{/osSecurityAndProtectionII}">OS Security and Protection II</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:href="@{/linuxBasics}">Linux Basics</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>OS Security and Protection II</h2>
+    <a th:href="@{documents/l7op.pdf}">Lecture Notes</a>
+    <p>
+        There are many ways to secure and protect the operating system. These solutions include
+        user training , using technology and using better software. It is important to understand that
+        the more leyers of security the better.
+        <br/>
+        The first ways to secure the operating systems is to have a security policy.
+    </p>
+    <h3>Security policy</h3>
+    <p>
+        a security policy example may state the following :
+    </p>
+    <ul>
+        <li>All outside application must go through a code review before being depoyed</li>
+        <li>All users should not share their password</li>
+    </ul>
+    <p>
+        Security policy is able to direct the users on the permissable actions,
+        what is required and what is not to be done. The policy must be reviewed and
+        updated periodically
+    </p>
+    <h3>Valnerability assesments</h3>
+    <p>
+        The vulnerability assessment can be conducted by way of a risk assesments
+        and also port scanners. the core activity in a vulnerability is penetration testing. there
+        are a variety of apected in which a system can be checked.
+    </p>
+        <ol>
+            <li>
+                Short of easy to gues passwords
+            </li>
+            <li>
+                Unauthorized privilaged programs.
+            </li>
+            <li>unauthorized programs in systems directories.</li>
+            <li>
+                unexpectedldy long-running programs.
+            </li>
+            <li>
+                Changes to system programs. This is checked using a checksum.
+            </li>
+            <li></li>
+        </ol>
+
+    <h3>Intrusion Prevention</h3>
+    <p>Intrusion prevention is concerened with detecting intrusions that would be
+    both attemted intrusion and successfull intrusion. There are many ways
+    to conduct intrusion prevention</p>
+    <dl>
+        <dt>
+            Signature based detection
+        </dt>
+        <dd>This attempts to characterize dangerous attempts</dd>
+        <dt>
+            Anomaly based detection
+        </dt>
+        <dd>
+            This attempts to detect all the strange behaiviour.
+        </dd>
+    </dl>
+
+    <p>
+        The main differnce between the two is that <b>Anomally detection can
+    detect previously unknown. intrusions while signature based prevention detects
+    previously know intrusions. </b>
+    </p>
+
+    <h3>Auditing, Account and Logging</h3>
+    <p>
+        Authentication and authorization failures can tell us a lot about intrusion attempts.
+    </p>
+</div>
+
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Firewall to protect system networks</h2>
+    <p> A firewall is intalled in order to connect a computer into an untrustwothy network.
+    The firewall seperates the computer from the network. The firewall can also limit communication
+     based on source and destination and ports and direction. There are different types of
+    firewals : </p>
+    <ul>
+        <li>
+            A personal firewall
+        </li>
+        <li>An application proxy firewall.</li>
+        <li>An XML firewall  -this firewall is used for analyzing XML trafic and also
+        blocking disallowed or malformed XML</li>
+        <li>
+            System Calls firewall - This firewal sits between the computer programs and the kernel that
+            maked the system calls.
+        </li>
+    </ul>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Protection</h2>
+    <p>
+        There are several reasons why protection is needed in a system. The main reason
+        is to prevent users michevious behavior. The time-tested guiding principle is
+        the principle of least privilage. that is a program is only given just
+        enough privillages to perform their task.
+        <br/>
+        The principle of complatmentalization also is a means of security .
+    </p>
+    <h3>Protection rings</h3>
+    <p>
+        Ther Kernel is the main component of the operating system. When a system boots it boots to the highest privillage
+        the code call an instruction sometimes call a gate Which provide a portal between rings.
+    </p>
+</div>
+<div class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h2>Access Matrix</h2>
+    <p>
+        This is the general model of protection . The access matrix provides us with the ability
+        to specify a variety of policies.
+    </p>
+</div>
+
+
+
+<script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
